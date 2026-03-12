@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    networks:
+      - app
+  mongo:
+    image: mongo:4
+    ports:
+      - "27017:27017"
+    networks:
+      - app
+networks:
+  app:
